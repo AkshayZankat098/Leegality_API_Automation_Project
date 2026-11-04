@@ -1,11 +1,12 @@
+import java.io.IOException;
+
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-
-import java.io.IOException;
 
 public class BaseApiTest {
 
@@ -17,7 +18,7 @@ public class BaseApiTest {
 
     @BeforeMethod
     public void setupRequestSpecification() {
-        baseUrl = ApiConfig_Routes.BASE_URL;
+        baseUrl = ApiConfig_Routes.CreateToken_BASE_URL;
 
         requestSpec = new RequestSpecBuilder()
 
@@ -45,6 +46,7 @@ public class BaseApiTest {
     }
 
     protected Response runScenario(String testCaseName) throws IOException {
+        
         ApiMethods.TestCaseData testCase = ApiMethods.loadTestCase(testCaseName);
         Response response = ApiMethods.POST(testCase);
 
