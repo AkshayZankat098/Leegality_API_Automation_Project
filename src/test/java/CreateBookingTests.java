@@ -98,8 +98,8 @@ public class CreateBookingTests {
 
     @Test
     public void returnsServerErrorWhenFirstnameIsNumeric() {
-        Response response = createBooking("booking.numericFirstnameRequest");
 
+        Response response = createBooking("booking.numericFirstnameRequest");
         ApiAssertions.assertStatusCode(response, 500);
     }
 
@@ -193,8 +193,8 @@ public class CreateBookingTests {
     }
 
     private Response createBooking(String payloadName) {
-        Response response = ApiRequestMethods.post(
-                "/booking", ApiRequestMethods.getPayload(payloadName));
+
+    Response response = ApiRequestMethods.post("/booking", ApiRequestMethods.getPayload(payloadName));
 
         if (response.statusCode() == 200) {
             int bookingId = response.jsonPath().getInt("bookingid");

@@ -1,26 +1,22 @@
-# Bug Log
+### BUG-001 : Invalid Check-in Date Format Accepted
+API : GetBookingIds
+- **Severity:** Major
+- **Priority:** High
+- **Method:** GET
+- **Expected Format:** `YYYY-MM-DD`
 
-No confirmed framework defects are currently tracked.
+**Request:**
+https://restful-booker.herokuapp.com/booking?checkin=04-11-2026
 
-## Reporting a defect
+**Expected:** 
+1. When an invalid date format that is not specified in the documentation is entered, the system/API must reject it. In document CCYY-MM-DD is mentioned. 
+2. Expected Response: HTTP 400 Bad Request with a validation error.
 
-Create one entry per defect and include enough detail for another tester to
-reproduce it:
+**Actual:** 
+API accepts the invalid date format and returns booking IDs.
 
-```text
-### [BUG-XXX] Short, specific title
-
-- Status: New
-- Severity: Critical / High / Medium / Low
-- Environment: OS, JDK, Gradle, and relevant service/API
-- Preconditions:
-- Steps to reproduce:
-  1.
-- Expected result:
-- Actual result:
-- Reproducibility:
-- Evidence: logs, request/response details, or screenshots (redact secrets)
-```
-
-Use impact to select severity, record reproducible steps and sanitized evidence,
-and update the status as the issue is triaged and resolved.
+**Scenarios:**
+1. Valid date: `2026-11-04`
+2. Invalid format: `04-11-2026`
+3. Invalid separator: `04/11/2026`
+4. Invalid calendar date: `2026-02-30`
