@@ -1,0 +1,478 @@
+{
+  "auth": {
+    "validCredentials": {
+      "username": "admin",
+      "password": "password123"
+    },
+    "noBody": null,
+    "emptyBody": {},
+    "missingUsername": {
+      "password": "password123"
+    },
+    "blankUsername": {
+      "username": "",
+      "password": "password123"
+    },
+    "missingPassword": {
+      "username": "admin"
+    },
+    "invalidUsername": {
+      "username": "invalid-user",
+      "password": "password123"
+    },
+    "invalidPassword": {
+      "username": "admin",
+      "password": "invalid-password"
+    },
+    "invalidBothCredentials": {
+      "username": "invalid-user",
+      "password": "invalid-password"
+    },
+    "numericUsername": {
+      "username": 12345,
+      "password": "password123"
+    },
+    "booleanPassword": {
+      "username": "admin",
+      "password": true
+    },
+    "malformedJson": "{\"username\":\"admin\" \"password\":\"password123\"}"
+  },
+  "booking": {
+    "validCreateRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 500,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-11-01",
+        "checkout": "2026-11-10"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "missingFirstnameRequest": {
+      "lastname": "Zankat",
+      "totalprice": 500,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-11-01",
+        "checkout": "2026-11-10"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "missingLastnameRequest": {
+      "firstname": "Akshay",
+      "totalprice": 500,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-11-01",
+        "checkout": "2026-11-10"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "missingAdditionalNeedsRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 500,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-11-01",
+        "checkout": "2026-11-10"
+      }
+    },
+    "numericFirstnameRequest": {
+      "firstname": 500,
+      "lastname": "Zankat",
+      "totalprice": 500,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-11-01",
+        "checkout": "2026-11-10"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "numericLastnameRequest": {
+      "firstname": "Akshay",
+      "lastname": 500,
+      "totalprice": 500,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-11-01",
+        "checkout": "2026-11-10"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "stringTotalPriceRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": "Test Check",
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-11-01",
+        "checkout": "2026-11-10"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "stringDepositPaidRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 500,
+      "depositpaid": "Test",
+      "bookingdates": {
+        "checkin": "2026-11-01",
+        "checkout": "2026-11-10"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "invalidCheckinRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 500,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "Test invalid",
+        "checkout": "2026-11-10"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "invalidCheckoutRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 500,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-11-01",
+        "checkout": "Test User"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "checkinAfterCheckoutRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 500,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2028-11-01",
+        "checkout": "2026-11-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "invalidSpecialCharacterJson": "{\"firstname\":$,\"lastname\":\"Zankat\",\"totalprice\":500,\"depositpaid\":true,\"bookingdates\":{\"checkin\":\"2026-11-04\",\"checkout\":\"2026-11-05\"},\"additionalneeds\":\"Breakfast\"}",
+    "invalidJson": "{ Test users }",
+    "missingBookingDatesRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 500,
+      "depositpaid": true,
+      "additionalneeds": "Breakfast"
+    },
+    "maxValuesRequest": {
+      "firstname": "AkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshay",
+      "lastname": "AkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshayAkshay",
+      "totalprice": 50000000000000000000000000000000000000,
+      "depositpaid": "depositpaiddepositpaiddepositpaiddepositpaiddepositpaiddepositpaiddepositpaiddepositpaiddepositpaiddepositpaiddepositpaid",
+      "bookingdates": {
+        "checkin": "2026-11-01",
+        "checkout": "2026-11-10"
+      },
+      "additionalneeds": "depositpaiddepositpaiddepositpaiddepositpaiddepositpaiddepositpaiddepositpaiddepositpaiddepositpaid"
+    },
+    "createRequest": {
+      "firstname": "Jim",
+      "lastname": "Brown",
+      "totalprice": 111,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2025-01-01",
+        "checkout": "2025-01-02"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "updateRequest": {
+      "firstname": "Updated",
+      "lastname": "Brown",
+      "totalprice": 222,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2025-01-01",
+        "checkout": "2025-01-02"
+      },
+      "additionalneeds": "Updated breakfast"
+    },
+    "putValidRequest": {
+      "firstname": "Change test Change Again",
+      "lastname": "Brown",
+      "totalprice": 111,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2018-01-01",
+        "checkout": "2019-01-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "putMissingFirstnameRequest": {
+      "lastname": "Brown",
+      "totalprice": 111,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2018-01-01",
+        "checkout": "2019-01-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "putMissingLastnameRequest": {
+      "firstname": "Akshay",
+      "totalprice": 111,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2018-01-01",
+        "checkout": "2019-01-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "putMissingTotalpriceRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2018-01-01",
+        "checkout": "2019-01-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "putMissingDepositpaidRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 111,
+      "bookingdates": {
+        "checkin": "2018-01-01",
+        "checkout": "2019-01-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "putMissingBookingdatesRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 111,
+      "depositpaid": true,
+      "additionalneeds": "Breakfast"
+    },
+    "putMissingCheckinRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 111,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkout": "2019-01-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "putMissingCheckoutRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 111,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2018-01-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "putMissingAdditionalneedsRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 111,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2018-01-01",
+        "checkout": "2019-01-01"
+      }
+    },
+    "putNumericFirstnameRequest": {
+      "firstname": 500,
+      "lastname": "Zankat",
+      "totalprice": 111,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2018-01-01",
+        "checkout": "2019-01-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "putNumericLastnameRequest": {
+      "firstname": "Akshay",
+      "lastname": 500,
+      "totalprice": 111,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2018-01-01",
+        "checkout": "2019-01-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "putStringTotalpriceRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": "Done Test",
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2018-01-01",
+        "checkout": "2019-01-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "putStringDepositpaidRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 500,
+      "depositpaid": "Testing Data",
+      "bookingdates": {
+        "checkin": "2018-01-01",
+        "checkout": "2019-01-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "putInvalidCheckinRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 500,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "Test Data",
+        "checkout": "2019-01-01"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "putInvalidCheckoutRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 500,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-01-01",
+        "checkout": "Testing done"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "putNumericAdditionalneedsRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 500,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-01-01",
+        "checkout": "2026-01-05"
+      },
+      "additionalneeds": 52365
+    },
+    "putCheckinAfterCheckoutRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 111,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2030-01-05",
+        "checkout": "2026-01-01"
+      },
+      "additionalneeds": "Yes Pass"
+    },
+    "putInvalidDateSequenceRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 111,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2027-01-01",
+        "checkout": "2026-01-01"
+      },
+      "additionalneeds": "Yes Pass"
+    },
+    "putInvalidJsonRequest": "{\"firstname\":$,\"lastname\":\"Brown\"}",
+    "putValidNoHeadersRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 111,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2030-01-01",
+        "checkout": "2026-01-01"
+      },
+      "additionalneeds": "Yes Pass"
+    },
+    "patchFirstnameRequest": {
+      "firstname": "Only first name"
+    },
+    "patchSpecialFirstnameRequest": {
+      "firstname": "@#$%^"
+    },
+    "patchNumericFirstnameRequest": {
+      "firstname": 500
+    },
+    "patchMalformedFirstnameRequest": "{\"firstname\":500!@#$}",
+    "patchLastnameRequest": {
+      "lastname": "Change lastname"
+    },
+    "patchNumericLastnameRequest": {
+      "lastname": 26535
+    },
+    "patchNullLastnameRequest": {
+      "lastname": null
+    },
+    "patchTotalpriceRequest": {
+      "totalprice": 2365
+    },
+    "patchStringTotalpriceRequest": {
+      "totalprice": "Akshay"
+    },
+    "patchDepositpaidRequest": {
+      "depositpaid": true
+    },
+    "patchStringDepositpaidRequest": {
+      "depositpaid": "Akshay"
+    },
+    "patchBookingdatesRequest": {
+      "bookingdates": {
+        "checkin": "2026-01-01",
+        "checkout": "2026-01-01"
+      }
+    },
+    "patchInvalidCheckinRequest": {
+      "bookingdates": {
+        "checkin": "Akshay",
+        "checkout": "2026-01-01"
+      }
+    },
+    "patchInvalidCheckoutRequest": {
+      "bookingdates": {
+        "checkin": "2026-01-01",
+        "checkout": "Akshay"
+      }
+    },
+    "patchInvalidDateFormatRequest": {
+      "bookingdates": {
+        "checkin": "2026-01-01",
+        "checkout": "2026@05/14"
+      }
+    },
+    "patchCheckinAfterCheckoutRequest": {
+      "bookingdates": {
+        "checkin": "2027-01-01",
+        "checkout": "2026-01-01"
+      }
+    },
+    "patchMultipleFirstnameRequest": "{\"firstname\":\"Akshay Multiple\",\"firstname\":\"Akshay Multiple\",\"bookingdates\":{\"checkin\":\"2027-01-01\",\"checkout\":\"2026-01-01\"}}",
+    "partialUpdateRequest": {
+      "firstname": "PartiallyUpdated"
+    },
+    "filterRequest": {
+      "firstname": "Akshay",
+      "lastname": "Zankat",
+      "totalprice": 111,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-11-04",
+        "checkout": "2026-11-05"
+      },
+      "additionalneeds": "Filter test booking"
+    }
+  }
+}

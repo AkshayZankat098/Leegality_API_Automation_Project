@@ -1,38 +1,48 @@
-# Java REST Assured API Automation Framework
+# Restful Booker API Automation
 
-A Gradle-based Java API test framework for the Restful Booker API using REST Assured and TestNG.
+Java API tests for the Restful Booker sandbox, built with REST Assured, TestNG,
+and Gradle. The suite covers the assignment's health, authentication, and
+booking endpoints.
 
-## Requirements
+## Run
 
-- JDK 17 or newer
-- Gradle 8.14.2 or newer
-
-The Gradle wrapper is included, so a separate Gradle installation is not required.
-
-## Run the tests
-
-From the project root:
+Requires JDK 17 or newer. From the project root:
 
 ```powershell
 .\gradlew.bat test
 ```
 
-To run against a different API, override the default base URL. The system property takes precedence over the environment variable and `config.properties`:
+The Gradle wrapper is included. TestNG results are written to
+`build/reports/tests/test/index.html`; the build also generates an Allure report
+under `build/reports/allure-report/allureReport/`.
 
-```powershell
-.\gradlew.bat test -Dbase.url=https://api.example.com
-```
+## Test approach
 
-Alternatively, set `API_BASE_URL` in the environment.
+- Shared URL and JSON headers: `src/main/java/BaseService.java`
+- Reusable HTTP methods and JSON test-data loading:
+  `src/main/java/ApiRequestMethods.java`
+- Token creation: `src/main/java/AuthenticationConfig.java`
+- Test payloads: `src/test/resources/Payloads_Data.json`
+- Test classes in `src/test/java/` cover auth, health check, booking ID filters,
+  booking retrieval, creation, full and partial updates, and deletion.
 
-## Project layout
+Tests check response codes and selected response fields. Scenarios include
+valid requests, authentication failures, missing or malformed input, and
+boundary-like values.
 
-- `src/main/java/BaseService.java` — shared API configuration and request specification
-- `src/main/java/AuthService.java` — authentication operations
-- `src/main/java/BookingService.java` — booking and health-check operations
-- `src/main/java/TestData.java` — shared test-data loading
-- `src/main/resources/config.properties` — default API base URL
-- `src/test/java` — TestNG tests for authentication and booking operations
-- `src/test/resources/testdata.json` — authentication scenarios and booking request data
+## Limitations and current status
 
-Gradle writes test reports to `build/reports/tests/test/index.html`.
+The sandbox is shared and resets periodically. Most write tests create their
+own bookings and attempt cleanup, but some tests still rely on shared booking
+data, and cleanup/authentication failures can leave records behind. The suite
+does not yet consistently assert the intended contract for invalid prices and
+dates, and response-schema validation and request/response attachments are not
+implemented.
+
+The latest recorded local run (November 5, 2026) had 121 tests: 87 passed,
+21 failed, and 13 were skipped. Treat this as work in progress, not a passing
+release; regenerate and review the reports after changes.
+
+`BUGS.md` currently contains a defect-report template; confirmed assignment
+findings still need to be documented with reproduction steps and expected vs.
+actual behavior.
