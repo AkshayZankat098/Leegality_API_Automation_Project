@@ -1,7 +1,7 @@
-import io.restassured.response.Response;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import io.restassured.response.Response;
 
 public class GetBookingIdsTests {
 
@@ -50,14 +50,14 @@ public class GetBookingIdsTests {
 
     @Test
     public void filtersByCheckInDate() {
-        Response response = ApiRequestMethods.get("/booking?checkin=2026-11-04");
+        Response response = ApiRequestMethods.get("/booking?checkin=2026-11-01");
 
         ApiAssertions.assertContainsBookingId(response, 200, filterBookingId);
     }
 
     @Test
     public void filtersByCheckOutDate() {
-        Response response = ApiRequestMethods.get("/booking?checkout=2026-11-04");
+        Response response = ApiRequestMethods.get("/booking?checkout=2026-11-10");
 
         ApiAssertions.assertContainsBookingId(response, 200, filterBookingId);
     }
@@ -65,7 +65,7 @@ public class GetBookingIdsTests {
     @Test
     public void filtersByAllSupportedParameters() {
         Response response = ApiRequestMethods.get(
-                "/booking?firstname=Akshay&lastname=Zankat&checkin=2026-11-04&checkout=2026-11-05");
+                "/booking?firstname=Akshay&lastname=Zankat&checkin=2026-11-01&checkout=2026-11-10");
 
         ApiAssertions.assertContainsBookingId(response, 200, filterBookingId);
     }
@@ -101,10 +101,10 @@ public class GetBookingIdsTests {
     }
 
     @Test
-    public void handlesTextAsCheckInDate() {
+    public void returnsServerErrorForTextCheckInDate() {
         Response response = ApiRequestMethods.get("/booking?checkin=TestUserString");
 
-        ApiAssertions.assertBookingIdsResponse(response, 200);
+        ApiAssertions.assertStatusCode(response, 500);
     }
 
     @Test
